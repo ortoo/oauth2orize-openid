@@ -1,5 +1,5 @@
 {
-  "name": "oauth2orize-openid",
+  "name": "oauth2orize-openid-koa",
   "version": "0.0.1",
   "description": "Extensions to support OpenID Connect with OAuth2orize.",
   "keywords": [
@@ -13,22 +13,20 @@
     "authentication",
     "authz",
     "authorization",
-    "connect",
-    "express",
+    "koa",
     "passport",
     "middleware"
   ],
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "James Sharp",
+    "email": "james@ortootech.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/oauth2orize-openid.git"
+    "url": "git://github.com/ortoo/oauth2orize-openid.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/oauth2orize-openid/issues"
+    "url": "http://github.com/ortoo/oauth2orize-openid/issues"
   },
   "licenses": [
     {
@@ -38,19 +36,23 @@
   ],
   "main": "./lib",
   "dependencies": {
-    "oauth2orize": "1.x.x",
+    "oauth2orize-koa": "1.x.x",
     "utils-merge": "1.x.x"
   },
   "devDependencies": {
-    "mocha": "2.x.x",
-    "chai": "2.x.x",
-    "chai-connect-middleware": "0.3.x",
-    "chai-oauth2orize-grant": "0.2.x"
-  },
-  "engines": {
-    "node": ">= 0.4.0"
+    "babel-cli": "^6.4.5",
+    "babel-eslint": "^4.1.6",
+    "babel-preset-es2015-node5": "^1.1.1",
+    "babel-preset-stage-3": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "chai": "1.x.x",
+    "eslint": "^1.10.3",
+    "mocha": "2.x.x"
   },
   "scripts": {
+    "version": "node_modules/.bin/babel src --out-dir lib",
+    "postversion": "git push && git push --tags",
+    "pretest": "node_modules/.bin/babel src --out-dir lib",
     "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
   }
 }

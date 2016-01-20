@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var oauth2orize = require('oauth2orize')
+var oauth2orize = require('oauth2orize-koa')
   , oauth2orize_ext = require('oauth2orize-openid') // require extentions.
   , passport = require('passport')
   , login = require('connect-ensure-login')

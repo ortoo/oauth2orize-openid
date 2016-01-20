@@ -1,4 +1,7 @@
-# oauth2orize-openid
+# oauth2orize-openid-koa
+
+A full port of [oauth2orize-openid](https://github.com/jaredhanson/oauth2orize-openid) for [koa](https://github.com/koajs/koa)
+rather than express.
 
 ## Tests
 
@@ -7,7 +10,7 @@
 
 ## Examples
 
-This [example](https://github.com/jaredhanson/oauth2orize-openid/tree/master/examples/all-grants) demonstrates
+This [example](https://github.com/ortoo/oauth2orize-openid/tree/master/examples/all-grants) demonstrates
 basic usage of the api.
 
 ## Credits
@@ -17,5 +20,3 @@ basic usage of the api.
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>

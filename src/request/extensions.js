@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Module dependencies.
  */
@@ -23,33 +21,23 @@ var AuthorizationError = require('oauth2orize-koa').AuthorizationError;
  * @return {Object} module
  * @api public
  */
-module.exports = function () {
+module.exports = function() {
 
   function request(ctx) {
-    var q = ctx.query,
-        ext = {};
+    var q = ctx.query
+      , ext = {};
 
     // TODO: Only parse these if scope includes `openid`
 
     ext.nonce = q.nonce;
     ext.display = q.display || 'page';
-    if (q.prompt) {
-      ext.prompt = q.prompt.split(' ');
-    }
-    if (q.max_age) {
-      ext.maxAge = parseInt(q.max_age);
-    }
-    if (q.ui_locales) {
-      ext.uiLocales = q.ui_locales.split(' ');
-    }
-    if (q.claims_locales) {
-      ext.claimsLocales = q.claims_locales.split(' ');
-    }
+    if (q.prompt) { ext.prompt = q.prompt.split(' '); }
+    if (q.max_age) { ext.maxAge = parseInt(q.max_age); }
+    if (q.ui_locales) { ext.uiLocales = q.ui_locales.split(' '); }
+    if (q.claims_locales) { ext.claimsLocales = q.claims_locales.split(' '); }
     ext.idTokenHint = q.id_token_hint;
     ext.loginHint = q.login_hint;
-    if (q.acr_values) {
-      ext.acrValues = q.acr_values.split(' ');
-    }
+    if (q.acr_values) { ext.acrValues = q.acr_values.split(' '); }
 
     if (q.claims) {
       try {
@@ -75,9 +63,7 @@ module.exports = function () {
     // TODO: Add support for "request_uri" parameter
 
     if (ext.prompt && ext.prompt.length > 1) {
-      if (ext.prompt.indexOf('none') != -1) {
-        throw new AuthorizationError('Prompt includes none with other values', 'invalid_request');
-      }
+      if (ext.prompt.indexOf('none') != -1) { throw new AuthorizationError('Prompt includes none with other values', 'invalid_request'); }
     }
 
     return ext;
